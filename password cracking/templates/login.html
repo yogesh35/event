@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Cracking Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Password Cracking Challenge!</h2>
+        <p>Follow the instructions below to crack the password:</p>
+
+        <div class="instructions">
+            <ul>
+                <li>1. You have to guess the correct username and password.</li>
+                <li>2. The password is stored in a hashed format in the database.</li>
+                <li>3. You need to reverse the hashing process to crack the password. Use the given username and find the correct password using a hash cracker tool.</li>
+                <li>4. Once you crack the password, enter it in the login form to proceed.</li>
+                <li>5. The correct credentials are stored in the database. If the password is correct, you'll be redirected to the success page.</li>
+            </ul>
+        </div>
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="error-messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
+<a href="{{ url_for('show_hashes') }}">Click here to view the hashed passwords</a>
