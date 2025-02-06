@@ -36,4 +36,4 @@ def show_hashes():
     return render_template("hashes.html", users=users)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='10.0.2.255', port=5000, debug=True)
