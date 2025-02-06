@@ -18,6 +18,7 @@
                 <li>3. You need to reverse the hashing process to crack the password. Use the given username and find the correct password using a hash cracker tool.</li>
                 <li>4. Once you crack the password, enter it in the login form to proceed.</li>
                 <li>5. The correct credentials are stored in the database. If the password is correct, you'll be redirected to the success page.</li>
+                <a href="{{ url_for('show_hashes') }}">Click here to view the hashed passwords</a>
             </ul>
         </div>
 
@@ -45,4 +46,4 @@
     </div>
 </body>
 </html>
-<a href="{{ url_for('show_hashes') }}">Click here to view the hashed passwords</a>
+
